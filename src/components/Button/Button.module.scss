@@ -1,0 +1,90 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: 'TikTokDisplayFont', 'TiktokFont', sans-serif;
+    width: auto;
+    min-width: 100px;
+    padding: 9px 16px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    user-select: none;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    +.wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: #fff;
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+    }
+}
+
+.outline {
+    background-color: #fff;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.rounded {
+    border-radius: 999px;
+    border: 1px solid #cdc8c8;
+    color: #605f5f;
+
+    &:hover {
+        border: 1px solid #afa9a9;
+    }
+}
+
+.small {
+    padding: 4px 16px;
+    min-width: 88px;
+}
+
+.large {
+    padding: 14px 16px;
+    min-width: 140px;
+}
+
+.text {
+    background-color: transparent;
+    color: var(--black1);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.title {
+    margin: 0 6px;
+}

@@ -1,12 +1,24 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
 
 :root {
     --primary: #fe2c55;
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
+
+    --black1: rgba(22, 24, 35, 1);
+    // --text-color: rgb(65, 65, 72);
+    --text-color: rgba(22, 24, 35, 1);
+
+
+
 }
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
 }
 
 html {
@@ -15,6 +27,82 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: 'IBM Plex Sans', san-serif;
+    font-family: 'TikTokDisplayFont', 'TiktokFont', sans-serif;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+
+
+    & button {
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 10px;
+    }
+}
+
+// Fonts emmbeded
+
+@font-face {
+    font-family: TikTokDisplayFont;
+    src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: TikTokDisplayFont;
+    src: url('/assets/fonts/TikTokDisplayFont-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: TiktokFont;
+    src: url('/assets/fonts/TikTokFont-Bold.woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: TiktokFont;
+    src: url('/assets/fonts/TikTokFont-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: TiktokFont;
+    src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+    font-weight: 600;
+}
+
+
+.none {
+    display: none;
+}
+
+// custom tippy tooltip
+
+body .tippy-box {
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 21px;
+    background-color: rgba(84, 84, 92, 0.92);
+    
+
+    .tippy-arrow {
+        color: rgba(84, 84, 92, 0.92);
+    }
+
+    .tippy-content {
+        padding: 8px 12px;
+    }
+
+}
+
+
+.tippy-box[data-placement^=bottom]>.tippy-arrow:before {
+    top: -8px;
+    left: 0;
+    border-width: 0 8px 8px;
+    border-bottom-color: initial;
+    transform-origin: center bottom;
 }
