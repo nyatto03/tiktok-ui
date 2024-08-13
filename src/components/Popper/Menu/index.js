@@ -6,15 +6,18 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Header from './Header';
 import styles from './Menu.module.scss';
 import MenuItem from './MenuItem';
+import PropTyles from 'prop-types';
 
 const cx = classNames.bind(styles);
 
 const defaultFn = () => { };
 
-function Menu({ children, items = [], onChange = defaultFn }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
 
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1]
+
+    console.log(current)
 
     const renderItem = () => {
         return current.data.map((item, index) => {
@@ -41,6 +44,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             interactive
             placement='bottom-end'
             // offset={[16, 8]}
+            hideOnClick={hideOnClick}
             delay={[0, 400]}
             render={attrs => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -50,14 +54,14 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                             &&
                             (
                                 <Header
-                                    title={'Language'}
+                                    title={current.title}
                                     onBack={() => {
                                         setHistory(prev => prev.slice(0, prev.length - 1))
                                     }}
                                 />
                             )
                         }
-                        {renderItem()}
+                        <div className={cx('menu-body')}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}
@@ -66,6 +70,13 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             {children}
         </Tippy>
     );
+}
+
+Menu.propTyles = {
+    children: PropTyles.node.isRequired,
+    items: PropTyles.array,
+    hideOnClick: PropTyles.bool,
+    onChange: PropTyles.func,
 }
 
 export default Menu;

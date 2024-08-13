@@ -15,7 +15,7 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Search.module.scss';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
-import * as searchServices from '~/apiServices/searchServices';
+import * as searchService from '~/services/searchService';
 
 
 const cx = classNames.bind(styles);
@@ -39,7 +39,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced);
+            const result = await searchService.search(debounced);
 
             setSearchResult(result);
             setLoading(false);
@@ -58,6 +58,13 @@ function Search() {
 
     const handleHideResult = () => {
         setShowResult(false);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
     };
 
 
@@ -87,7 +94,7 @@ function Search() {
                         ref={inputRef}
                         spellCheck={false}
                         placeholder='Search accounts and videos'
-                        onChange={e => setSearchValue(e.target.value)}
+                        onChange={handleChange}
                         onFocus={() => setShowResult(true)}
                     />
                     {!!searchValue && !loading && (
@@ -96,7 +103,7 @@ function Search() {
                         </button>
                     )}
                     {loading && <button className={cx('loading')}><FontAwesomeIcon icon={faSpinner} /></button>}
-                    <button className={cx('search-btn')}>
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                         <SearchIcon />
                     </button>
                 </div>

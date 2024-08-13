@@ -23,9 +23,11 @@ import {
     ShortcutsIcon,
     UploadIcon
 } from '~/components/Icons';
+import { Link } from 'react-router-dom';
 
 import Image from '~/components/Image';
 import Search from '../Search';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEM = [
@@ -45,6 +47,71 @@ const MENU_ITEM = [
                     code: 'vi',
                     title: 'Tiếng Việt'
                 },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                }
             ]
         }
     },
@@ -56,6 +123,7 @@ const MENU_ITEM = [
     {
         icon: <ShortcutsIcon />,
         title: "Keyboard shortcuts",
+        to: '/shortcut',
     }
 ];
 
@@ -101,7 +169,9 @@ function Header() {
         <div className={cx('inner')}>
 
             <div className={cx('logo')}>
-                <img src={images.logo} alt='logo-img'></img>
+                <Link to={config.routes.home}>
+                    <img src={images.logo} alt='logo-img'></img>
+                </Link>
             </div>
 
             <Search />

@@ -1,7 +1,7 @@
 //Search
 .search,
 .search-result {
-    width: 361px;
+    width: 386px;
 }
 
 .search {
@@ -54,7 +54,9 @@
         border: none;
         background-color: transparent;
         caret-color: var(--primary);
-
+        flex: 1;
+        font-family: var(--font-family);
+        font-weight: 400;
     }
 
     input:not(:placeholder-shown)~.search-btn {
