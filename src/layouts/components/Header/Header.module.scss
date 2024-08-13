@@ -4,6 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    margin: 0 auto;
     width: 100%;
     height: var(--default-layout-header-height);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
@@ -16,6 +17,7 @@
 .inner {
     height: 100%;
     width: 1150px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,7 +45,7 @@
     border: transparent;
     margin-left: 8px;
     height: 100%;
-    padding: 9px 16px;
+    padding: 18px 13px;
     background-color: transparent;
 
     & svg {
@@ -89,4 +91,11 @@
     // object-fit: cover;
     padding: 3px 8px;
     cursor: pointer;
+}
+
+.user-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
